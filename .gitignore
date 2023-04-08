@@ -1,41 +1,94 @@
-# Compiled Lua sources
-luac.out
-
-# luarocks build files
-*.src.rock
-*.zip
-*.tar.gz
-
-# Object files
-*.o
-*.os
-*.ko
-*.obj
-*.elf
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-*.def
-*.exp
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+local Window = Rayfield:CreateWindow({
+    Name = "AimHub 0.2",
+    LoadingTitle = "AimHub Loading...",
+    LoadingSubtitle = "by SSIO Studio",
+    ConfigurationSaving = {
+       Enabled = true,
+       FolderName = nil,
+       FileName = "AimHub"
+    },
+    Discord = {
+       Enabled = false,
+       Invite = "https://discord.gg/7dD4m9X42W",
+       RememberJoins = false 
+    },
+    KeySystem = true, 
+    KeySettings = {
+       Title = "AimHub",
+       Subtitle = "Key System",
+       Note = "Join the discord for the Key 👉(discord.gg/7dD4m9X42W)",
+       FileName = "AimHub",
+       SaveKey = true,
+       GrabKeyFromSite = true, 
+       Key = "XH4OPLÖ"
+    }
+ })
+ 
+--------------------------Player--------------------------
+ 
+ local Player = Window:CreateTab("Player", 4483362458)
+ 
+ local Section = Player:CreateSection("change Speed")
+ 
+ local Slider = Player:CreateSlider({
+    Name = "WalkSpeed",
+    Range = {16, 500},
+    Increment = 16,
+    Suffix = "Speed",
+    CurrentValue = 16,
+    Flag = "WalkSpeed",
+    Callback = function(Value)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+    end,
+ })
+ 
+ local Section = Player:CreateSection("change Height")
+ 
+ local Slider = Player:CreateSlider({
+    Name = "JumpPower",
+    Range = {50, 500},
+    Increment = 50,
+    Suffix = "High",
+    CurrentValue = 50,
+    Flag = "JumpPower",
+    Callback = function(Value)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+    end,
+})
+ 
+ -------------------------------------------------------
+ 
+ 
+ 
+-------------------------Virsual------------------------
+ 
+local Virsual = Window:CreateTab("Virsual", 4483362458)
+ 
+local Section = Virsual:CreateSection("Aimbot")
+ 
+local Button = Virsual:CreateButton({
+    Name = "Aimbot",
+    Callback = function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/m4YdzEpx"))()
+    end,
+ })
+ 
+ local Section = Virsual:CreateSection("Esp")
+ 
+local Button = Virsual:CreateButton({
+    Name = "Esp",
+    Callback = function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/Bbs4X0rh"))()
+    end,
+ })
+ 
+-------------------------Credits---------------------------
+ 
+local Credits = Window:CreateTab("Credits", 4483362458)
+ 
+local Paragraph = Credits:CreateParagraph({Title = "SSIO Studio", Content = "Designer and Creator"})
+ 
+local Paragraph = Credits:CreateParagraph({Title = "Nineb_05", Content = "Discord Creator"})
+ 
+-----------------------------------------------------------
